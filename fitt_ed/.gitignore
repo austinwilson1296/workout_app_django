@@ -1,0 +1,73 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# C extensions
+*.c
+*.o
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+.installed.cfg
+*.log
+*.pot
+*.pyc
+
+# Pytest
+.cache/
+*.cover
+.coverage
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Translations
+*.mo
+*.pot
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Python version management
+.python-version
+
+# Local virtual environment
+.venv/
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Others
+*.DS_Store
+*.local
+*.pdb
+*.pkl

@@ -1,0 +1,144 @@
+body {
+  background-color: #232C33;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: whitesmoke;
+  font-size: 20px;
+}
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #4FB8B0; /* Light background for cards */
+  border: 2px solid #3C434A; /* Bootstrap primary color */
+  border-radius: 10px; /* More rounded corners */
+  font-size: 20px;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarges the card on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Add a shadow */
+}
+#workoutList{
+    transform: none;
+}
+
+.card-body {
+  background-color: #4FB8B0; /* White background for the body */
+  border-radius: 5px; /* Rounded corners */
+  color: white;
+}
+
+#main-container {
+  margin-top: 10px;
+}
+
+
+.card-img-top {
+  width: 100%; /* Makes the image responsive to the card width */
+  height: auto; /* Maintains the aspect ratio */
+  max-height: 200px; /* Adjust this value to set a maximum height */
+}
+#pricing {
+  width: 350px;
+  height: 450px;
+}
+
+#img-gym {
+  max-width: 100%;
+  height: auto;
+}
+
+#workout-list {
+  background-color: bisque;
+}
+
+
+#sidebarTimer {
+  text-align: center;
+  margin-top: 15px; /* Add some space above the timer */
+}
+
+.timer {
+  font-size: 1.5rem; /* Adjust font size for better visibility */
+  font-weight: bold; /* Make the timer text bold */
+}
+
+/* Style the button */
+#toggleTimerBtn {
+  background-color: #28a745; /* Change to a green background */
+  color: white; /* Change text color to white */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add some padding */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+#toggleTimerBtn:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+#stopTimerBtn{
+    background-color: #D62839; /* Change to a green background */
+    color: white; /* Change text color to white */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add some padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */;
+}
+
+#stopTimerBtn:hover {
+    background-color: red; /* Darker green on hover */
+  }
+
+#sidebarWorkout {
+    overflow: hidden; /* Prevents overflow */
+  }
+  
+.sidebar {
+    position: relative; /* Ensures child elements are positioned correctly */
+  }
+.btn{
+    background-color: #4FB8B0;
+    border: 1px solid #3C434A;
+    color: white;
+}
+.btn:hover{
+    background-color: #3E9B96;
+}
+
+.navbar{
+    background-color: #1A2026;
+}
+.nav-link{
+    color: white;
+}
+.nav-link:hover{
+    color: #3E9B96;
+}
+.navbar-brand{
+    color: #FF6F61;
+}
+.modal-dialog{
+    color: #4FB8B0;
+    font-size: large;
+    font-weight: bolder;
+}
+.modal-body{
+    background-color: #313536;
+    border: black;
+}
+
+.modal-header{
+    background-color: #232C33;
+    border: black
+}
+.modal-footer{
+    background-color: #232C33;
+    border: black
+}
+

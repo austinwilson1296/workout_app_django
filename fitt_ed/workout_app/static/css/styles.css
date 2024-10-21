@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 body {
-  background-color: #232C33;
-  color: white;
-  font-family: Arial, sans-serif;
+  background-color: #E7EEEE;
+  color: #232C33;
+  font-family: Roboto, sans-serif;
   margin: 0;
   padding: 0;
 }
 h1 {
-  color: whitesmoke;
+  color: #232C33;
   font-size: 20px;
 }
 .card {
@@ -105,7 +107,7 @@ h1 {
 .btn{
     background-color: #4FB8B0;
     border: 1px solid #3C434A;
-    color: white;
+    color: black;
 }
 .btn:hover{
     background-color: #3E9B96;
@@ -141,4 +143,19 @@ h1 {
     background-color: #232C33;
     border: black
 }
-
+#reps{
+  width:50px;
+}
+#weight{
+  width:50px;
+}
+.menuHead{
+  text-align: center;
+  color: #232c33;
+  font-size: 30px;
+}
+.list-group-item{
+  background-color: #232C33;
+  color: #4FB8B0;
+  margin-bottom: 10px;
+}

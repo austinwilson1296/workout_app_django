@@ -1,5 +1,4 @@
 {% extends 'workout_app/base.html' %} {% block content %}
-
 <div class="container-fluid">
   <!-- Modal for Creating Workout -->
   <div
@@ -82,155 +81,176 @@
     </div>
   </div>
 
-  <div class="row g-3 mb-4 d-flex align-items-stretch">
-    <div class="col-4">
-      <!-- Sidebar Container (Left) -->
-      <nav id="sidebarWorkout" class="d-md-block sidebar">
-        <div class="position-sticky mt-4">
-          <button
-            class="btn btn-primary"
-            id="sidebarToggle"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseSidebar"
-            aria-expanded="true"
-            aria-controls="collapseSidebar"
-          >
-            Toggle Workout List
-          </button>
-          <div class="col-4 col-sm-4 text-center flex-fill">
-            <button
-              class="btn btn-success btn-lg mb-3"
-              data-bs-toggle="modal"
-              data-bs-target="#create-workout-modal"
-              id="workout_actions"
-            >
-              Create Workout
-            </button>
-          <div class="collapse show" id="collapseSidebar">
-            <br>
-
-            <!-- Selected Exercises -->
-          <div class = "container p-3" style="background-color:#3E9B96; border-radius:20px">
-            <div class="mb-4">
-              <h3>Selected Warm-Ups</h3>
-              <div class="list-group">
-                {% for warm_up in selected_wu %}
-                <label class="list-group-item">{{ warm_up }}</label>
-                {% endfor %}
-              </div>
-            </div>
-            <div class="mb-4">
-              <h3>Selected Exercises</h3>
-              <div class="list-group">
-                {% for exercise in selected_ex %}
-                <label class="list-group-item">{{ exercise }}</label>
-                {% endfor %}
-              </div>
-            </div>
-
-            <!-- Selected Warm-Ups -->
-
-            <!-- Selected Cooldowns -->
-            <div class="mb-4">
-              <h3>Selected Cooldowns</h3>
-              <div class="list-group">
-                {% for cooldown in selected_cd %}
-                <label class="list-group-item">{{ cooldown }}</label>
-                {% endfor %}
-              </div>
-            </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+  <!-- Row for Timer and Create Workout Button -->
+  <div class="row my-5">
+    <div class="col-md-auto">
+      <button
+      class="btn"
+      data-bs-toggle="modal"
+      data-bs-target="#create-workout-modal"
+    >
+      Create Workout
+    </button>
+    <br>
+      <button class="btn" id="startTimerBtn" style="margin-top: 15px;">Start Timer</button>
+      <button
+        class="btn btn-danger mb-2"
+        id="stopTimerBtn"
+        style="display: none"
+      >
+        Stop Timer
+      </button>
+      <div class="timer mt-3">Timer: <span id="timer-display">00:00:00</span></div>
+      <h1 style="font-size: 30px">Workout Level: <strong>Beginner</strong></h1>
     </div>
+  </div>
 
-
-
-    <!-- Stats and Buttons Container (Right) -->
-    <div class="col-2 mt-2 p-2">
-      <div class="sidebar text-align-center p-2 mb-2" id="sidebarTimer">
-        <div class="text-center">
-          <button class="btn btn-secondary mb-2" id="toggleTimerBtn">
-            Start Timer
-          </button>
-          <button
-            class="btn btn-danger mb-2"
-            id="stopTimerBtn"
-            style="display: none"
-          >
-            Stop Timer
-          </button>
-          <div class="timer" id="timer">
-            Timer: <span id="timer-display">00:00:00</span>
-          </div>
-        </div>
+  <!-- Main Content Section with Three Columns -->
+   <!--Need text boxes to post data to backend to upload workout-->
+    
+   <div class="row justify-content-center pt-2">
+  
+    <div class="col-md-auto">
+      <h3 style="text-align: center">Warm-Up</h3>
+      <div id="workoutBoard">
+        <ul class="list-group p-2">
+          <li class="list-group-item">dyn_warmup_core_spinal</li>
+          <li class="list-group-item">dyn_warmup_core_spinal</li>
+          <li class="list-group-item">dyn_warmup_thoracic_spine</li>
+          <li class="list-group-item">dyn_warmup_core_hip_legs</li>
+          <li class="list-group-item">dyn_warmup_core_spinal</li>
+          <li class="list-group-item">dyn_warmup_thoracic_spine</li>
+          <li class="list-group-item">dyn_warmup_scapulo_thoracic</li>
+          <li class="list-group-item">dyn_warmup_core_hip_legs</li>
+          <li class="list-group-item">dyn_warmup_shoulder_scapula</li>
+          <li class="list-group-item">dyn_warmup_thoracic_spine</li>
+          <li class="list-group-item">dyn_warmup_core_hip_legs</li>
+          <li class="list-group-item">dyn_warmup_shoulder_scapula</li>
+         
+        </ul>
       </div>
-
+    </div>
+    <div class="col-6">
+      <h3 style="text-align: center">Main Workout</h3>
+      <div id="workoutBoard">
+        <ul class="list-group mt-3">
+          <h5 class="menuHead">Core</h5>
+          <li class="list-group-item d-flex justify-content-between align-items-center"">Decline Bench Rotation
+            <span>
+              Reps:
+              <input type="text" id="reps" class="form-control form-control-sm d-inline"> 
+              Weight:
+              <input type="text" id="weight" class="form-control form-control-sm d-inline ms-2"> 
+              <i class="fa-light fa-x fa-s p-2" style="color: rgb(252, 88, 88); "></i> |
+              <i class="fa-solid fa-check fa-s p-2" style="color: #63E6BE;"></i>
+            </span>
+          </li>
+        </ul>
+        <ul class="list-group mt-3">
+          <h5 class="menuHead">Balance</h5>
+          <li class="list-group-item d-flex justify-content-between align-items-center"">Decline Bench Rotation
+            <span>
+              Reps:
+              <input type="text" id="reps" class="form-control form-control-sm d-inline"> 
+              Weight:
+              <input type="text" id="weight" class="form-control form-control-sm d-inline ms-2"> 
+              <i class="fa-light fa-x fa-s p-2" style="color: rgb(252, 88, 88); "></i> |
+              <i class="fa-solid fa-check fa-s p-2" style="color: #63E6BE;"></i>
+            </span>
+          </li>
+        </ul>
+        <ul class="list-group mt-3">
+          <h5 class="menuHead">Plyometric</h5>
+          <li class="list-group-item d-flex justify-content-between align-items-center"">Decline Bench Rotation
+            <span>
+              Reps:
+              <input type="text" id="reps" class="form-control form-control-sm d-inline"> 
+              Weight:
+              <input type="text" id="weight" class="form-control form-control-sm d-inline ms-2"> 
+              <i class="fa-light fa-x fa-s p-2" style="color: rgb(252, 88, 88); "></i> |
+              <i class="fa-solid fa-check fa-s p-2" style="color: #63E6BE;"></i>
+            </span>
+          </li>
+        </ul>
+        <ul class="list-group mt-3">
+          <h5 class="menuHead">SAQ</h5>
+          <li class="list-group-item d-flex justify-content-between align-items-center"">Decline Bench Rotation
+            <span>
+              Reps:
+              <input type="text" id="reps" class="form-control form-control-sm d-inline"> 
+              Weight:
+              <input type="text" id="weight" class="form-control form-control-sm d-inline ms-2"> 
+              <i class="fa-light fa-x fa-s p-2" style="color: rgb(252, 88, 88); "></i> |
+              <i class="fa-solid fa-check fa-s p-2" style="color: #63E6BE;"></i>
+            </span>
+          </li>
+        </ul>
+        <ul class="list-group mt-3">
+          <h5 class="menuHead">Resistance</h5>
+          <li class="list-group-item d-flex justify-content-between align-items-center"">Decline Bench Rotation
+            <span>
+              Reps:
+              <input type="text" id="reps" class="form-control form-control-sm d-inline"> 
+              Weight:
+              <input type="text" id="weight" class="form-control form-control-sm d-inline ms-2"> 
+              <i class="fa-light fa-x fa-s p-2" style="color: rgb(252, 88, 88); "></i> |
+              <i class="fa-solid fa-check fa-s p-2" style="color: #63E6BE;"></i>
+            </span>
+          </li>
+        </ul>
       </div>
-      <div class="row mt-5 d-flex justify-content-center gap-3">
-        <div class="col-4 col-sm-4 text-center flex-fill">
-          <button
-            class="btn btn-success btn-lg mb-3"
-            data-bs-toggle="modal"
-            data-bs-target="#create-workout-modal"
-            id="workout_actions"
-          >
-            Create Workout
-          </button>
-        </div>
-        <div class="col-4 col-sm-4 text-center flex-fill">
-          <button
-            class="btn btn-success btn-lg mb-3"
-            id="workout_actions"
-            style="white-space: normal"
-          >
-            Complete Set
-          </button>
-        </div>
-      </div>
-
-      <div class="row d-flex justify-content-center gap-3">
-        <div class="col-4 col-sm-4 text-center flex-fill">
-          <button class="btn btn-success btn-lg mb-3" id="workout_actions">
-            Modify Workout
-          </button>
-        </div>
-        <div class="col-4 col-sm-4 text-center flex-fill">
-          <button class="btn btn-success btn-lg mb-3" id="workout_actions">
-            Complete Workout
-          </button>
-        </div>
-      </div>
+    </div>
+    <div class="col-md-auto">
+      <h3 style="text-align: center">Cool Down</h3>
+      <div id="workoutBoard">
+        <ul class="list-group p-2">
+          <li class="list-group-item">dyn_warmup_core_spinal</li>
+          <li class="list-group-item">dyn_warmup_core_spinal</li>
+          <li class="list-group-item">dyn_warmup_thoracic_spine</li>
+          <li class="list-group-item">dyn_warmup_core_hip_legs</li>
+          <li class="list-group-item">dyn_warmup_core_spinal</li>
+          <li class="list-group-item">dyn_warmup_thoracic_spine</li>
+          <li class="list-group-item">dyn_warmup_scapulo_thoracic</li>
+          <li class="list-group-item">dyn_warmup_core_hip_legs</li>
+          <li class="list-group-item">dyn_warmup_shoulder_scapula</li>
+          <li class="list-group-item">dyn_warmup_thoracic_spine</li>
+          <li class="list-group-item">dyn_warmup_core_hip_legs</li>
+          <li class="list-group-item">dyn_warmup_shoulder_scapula</li>
+         
+        </ul>
     </div>
   </div>
 </div>
+</div>
+</div>
 
 <script>
-  // timer.js
+  // Timer functionality
   document.addEventListener("DOMContentLoaded", function () {
-    let timerDisplay = document
-      .getElementById("sidebarTimer")
-      .querySelector("#timer-display");
-    let toggleTimerBtn = document.getElementById("toggleTimerBtn");
-    let stopTimerBtn = document.getElementById("stopTimerBtn");
+    const timerDisplay = document.getElementById("timer-display");
+    const startTimerBtn = document.getElementById("startTimerBtn");
+    const stopTimerBtn = document.getElementById("stopTimerBtn");
     let seconds = 0;
     let timerInterval;
+
+    // Function to update the timer display
+    function updateTimerDisplay() {
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      const secs = seconds % 60;
+      timerDisplay.textContent = `${String(hours).padStart(2, "0")}:${String(
+        minutes
+      ).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+    }
 
     // Function to start the timer
     function startTimer() {
       timerInterval = setInterval(function () {
         seconds++;
-        let hours = Math.floor(seconds / 3600);
-        let minutes = Math.floor((seconds % 3600) / 60);
-        let secs = seconds % 60;
-        timerDisplay.textContent = `${String(hours).padStart(2, "0")}:${String(
-          minutes
-        ).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+        updateTimerDisplay();
       }, 1000);
 
-      toggleTimerBtn.style.display = "none"; // Hide Start Timer button
+      startTimerBtn.style.display = "none"; // Hide Start Timer button
       stopTimerBtn.style.display = "inline-block"; // Show Stop Timer button
     }
 
@@ -238,12 +258,12 @@
     function stopTimer() {
       clearInterval(timerInterval);
       timerInterval = null; // Reset timer interval
-      toggleTimerBtn.style.display = "inline-block"; // Show Start Timer button
+      startTimerBtn.style.display = "inline-block"; // Show Start Timer button
       stopTimerBtn.style.display = "none"; // Hide Stop Timer button
     }
 
     // Event listener for the button to start the timer
-    toggleTimerBtn.addEventListener("click", function () {
+    startTimerBtn.addEventListener("click", function () {
       if (!timerInterval) {
         startTimer();
       }

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseNotFound
 from django.template import loader,TemplateDoesNotExist
-from .equipment_list import *
+from .excercises import *
 import random
 # Create your views here.
 

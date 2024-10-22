@@ -10,7 +10,9 @@ class CategoryLevels(models.TextChoices):
     POWER = 'Power', 'Power'
     MED_BALL_CORE = 'Med_ball_core', 'Med Ball Core'
     MED_BALL_POWER = 'Med_ball_power', 'Med Ball Power'
+    CORE_SPINAL = 'Core_spinal','Core_spinal'
     CORE_HIP_LEGS = 'Core_hip_legs', 'Core Hip/Legs'
+    SHOULDER_SCAPULA = 'Shoulder_scapula','Shoulder_scapula'
     THORACIC_SPINE_MOBILITY = 'Thoracic_spine_mobility', 'Thoracic Spine Mobility'
     SCAPULAR_CLOSED_CHAIN = 'Scapular_closed_chain', 'Scapular Closed Chain'
     SCAPULAR_OPEN_CHAIN = 'Scapular_open_chain', 'Scapular Open Chain'
@@ -29,16 +31,28 @@ class CategoryLevels(models.TextChoices):
     LEG_UNSTABLE = 'Leg_unstable', '2 Leg Unstable/1 Leg Unstable'
     STABILIZATION_1 = 'Stabilization_1', 'Stabilization 1'
     STABILIZATION_2 = 'Stabilization_2', 'Stabilization 2'
+    SHOULDERS = 'Shoulders','Shoulders'
+    REAR_SHOULDERS = 'Rear_shoulders','Rear_shoulders'
+    BICEPS = 'Biceps','Biceps'
+    TRICEPS = 'Triceps','Triceps'
+    COMPOUND = 'Compound','Compound'
+    SHOULDERS_STRENGTH = 'Shoulders_strength','Shoulders_strength'
+    REAR_DELTS_STRENGTH = 'Rear_delts_strength','Rear_delts_strength'
 
 
 class ExcerciseCategory(models.Model):
-    name = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=255)
     category = models.CharField(max_length=255, choices=CategoryLevels.choices)
     sub_category = models.CharField(max_length=255, blank=True)
 
+    def __str__(self):
+        return f'{self.name} || {self.category}'
+
 class Excercise(models.Model):
-    # Add your fields for exercises here, for example:
     name = models.CharField(max_length=255)
     category = models.ForeignKey(ExcerciseCategory, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name} || {self.category}'
 
     

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_%05*c^&+e5)yd*9a!g#5uf)_5f+(9yss9stb-$hf^4=bz!!#=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'workout_app',
+    'import_export'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,26 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    "version": 1,  # Corrected the version number assignment with a colon
+    "disable_existing_loggers": False,  # Ensures existing loggers aren't disabled
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+        },
+    },
+    "loggers": {
+        "django.db.backends": {
+            "level": "INFO",  # Only log queries in INFO level or above
+            "handlers": ["console"],
+            "propagate": False,
+        },
+"import_export": {
+    "handlers": ["console"],
+    "level": "DEBUG",  # Change this to DEBUG for more detailed logs
+    "propagate": False,
+},
+    },
+}
